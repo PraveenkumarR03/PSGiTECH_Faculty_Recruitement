@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="assets/css/style.css" rel="stylesheet">
+    <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Register</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+  <link rel="shortcut icon" type="image/x-icon" href="assets/img/PSGiTech Logo.png">
+    <title>Staff Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            padding-top: 100px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease; /* Added transition for the blow effect */
+        }
+
+        .container:hover {
+            border-color: #0d00c4; /* Change border color on hover */
+            box-shadow: 0 0 20px rgba(4, 41, 192, 0.5); /* Change box shadow on hover */
+        }
+
+        .container h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            text-decoration: none; /* Remove underline by default */
+            transition: text-decoration 0.3s ease; /* Added transition for the underline effect */
+        }
+
+        .container h1:hover {
+            text-decoration: underline; /* Apply underline effect on hover */
+        }
+
+        .profile-details {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap; /* Added flex-wrap for responsiveness */
+        }
+
+        .profile-image {
+            margin-right: 20px;
+            margin-bottom: 20px; /* Added margin-bottom for responsiveness */
+        }
+
+        .profile-image img {
+            width: 150px;
+            height: 150px;
+            border-radius: 20%;
+            object-fit: cover;
+            border: 3px solid #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .details {
+            flex-grow: 1;
+            padding-top: 20px;
+        }
+
+        .detail {
+            margin-bottom: 10px;
+        }
+
+        .label {
+            font-weight: bold;
+        }
+
+        .value {
+            margin-left: 10px;
+            font-weight: normal;
+        }
+
+       
+
+        /* Media query for responsiveness */
+        @media (max-width: 600px) {
+            .profile-details {
+                flex-direction: column;
+            }
+            .profile-image {
+                margin: auto;
+            }
+
+        }
+    </style>
+</head>
+<body>
+    <header id="header" class="d-flex align-items-center header-inner ">
+        <div class="container-fluid container-xxl d-flex align-items-center">
+    
+          <div id="logo" class="me-auto" style="    display: flex;justify-content: flex-start;gap: 10px;">
+            <!-- Uncomment below if you prefer to use a text logo -->
+             <a href="/recruitment" class=""><img src="assets/img/psg.png" alt="" title=""></a>
+             <h1 style="text-transform: none;"><a href="/recruitment">PSG<span> iTech</span></a></h1>
+            
+          </div>
+          <nav id="navbar" class="navbar order-last order-lg-0">
+            <ul>
+                <li><a class="nav-link scrollto active" href="/recruitment">Home</a></li>
+                <li><a class="nav-link scrollto" href="/recruitment/profile">Profile</a></li>
+                <%if(user){%>
+                    <%if(user.accountType=="hr"){%>
+                        <li><a class="nav-link scrollto" href="/recruitment/approval">HR Approval</a></li>
+                    <%}else if(user.accountType=="hod"){%>
+                        <li><a class="nav-link scrollto" href="/recruitment/hodapproval">Hod Approval</a></li>
+                    <%}else if(user.accountType=="admin"){%>
+                        <li><a class="nav-link scrollto" href="/recruitment/approval">HR Approval</a></li>
+                        <li><a class="nav-link scrollto" href="/recruitment/hodapproval">Hod Approval</a></li>
+                    <%}%>
+                    
+                <%}%>
+              </ul>
+              <i class="bi bi-list mobile-nav-toggle"></i>
+
+            </nav>
+            <%if(user){%> 
+            <a class="buy-tickets scrollto" href="/recruitment/logout">Logout</a>
+
+        <%}
+        else{%>
+            <a class="buy-tickets scrollto" href="/recruitment/login">Login</a>
+        <%}%>
+            
+            
+        </div>
+      </header><!-- End Header -->
+      <% if(message.length > 0) { %>
+        <div class="alert alert-dark"s>
+          <%- message %>
+        </div>
+        <%}%>
+    <div class="container">
+
+        <h1>Candidate Profile</h1>
+        <div class="profile-details">
+            <div class="profile-image"><% if(user.photo){%>
+                <img src="assets/photos/<%- user.photo%>"  alt="PHOTO"/>
+                
+            <%}else{%>
+                <img src="https://media.licdn.com/dms/image/D4D03AQE-PKavKmnSEw/profile-displayphoto-shrink_200_200/0/1691302276733?e=1714003200&v=beta&t=2nuTyOUMoAI4HvkZTikR_RxmyEqHnOD_cbJoQGasa54" alt="Staff Photo">
+            <%}%>
+            </div>
+            <div class="details">
+                <div class="detail">
+                    <span class="label">Name:</span>
+                    <span class="value"><strong><%= user.name %></strong></span>
+                </div>
+                <div class="detail">
+                    <span class="label">Gender:</span>
+                    <span class="value"><%= user.gender %></span>
+                </div>
+                <div class="detail">
+                    <span class="label">Maritial Status:</span>
+                    <span class="value"><%= user.maritialstatus %></span>
+                </div>
+                <div class="detail">
+                    <span class="label">Father's Name:</span>
+                    <span class="value"><%= user.fathername %></span>
+                </div>
+                <div class="detail">
+                    <span class="label">Date of Birth:</span>
+                    <span class="value"><%= user.dob %></span>
+                </div>
+                <div class="detail">
+                    <span class="label">Address:</span>
+                    <span class="value"><%= user.paddr %></span>
+                </div>
+                <div class="detail">
+                    <span class="label">Contact Details:</span>
+                    <span class="value"><%= user.mobile %></span>
+                </div>
+                
+                <div class="detail"><%if(apply){%><%if(apply.status){%>
+                    <span class="label">Status:</span>
+                    
+                        <%if(apply.status=="Accepted By HR"){%>
+                            <span class="value"><%= apply.status %>. Pending HOD Approval</span>
+                        <%}else if(apply.status=="Accepted By HOD"){%>
+                            <span class="value">Accepted. Interview Call will be informed Soon</span>
+                        <%}else if(apply.status=="Rejected By HR"||apply.status=="Rejected By HOD"){%>
+                            <span class="value">Rejected</span>
+                        <%}%>
+
+                        <%}%>
+                    <%}%>
+                </div>
+            </div>
+            
+        </div>
+        <br>
+        <div>
+
+            <center> 
+                <%if(user.accountType=="user"){%>
+                <%if(user.apptype=="Teaching"){%>
+                <%if(user.regcount==6){%>
+                <a class="buy-tickets scrollto" style=" color:black ; font-weight: bold;" href="/recruitment/view">Application View</a>
+                <%}else if(user.regcount>0 && user.regcount<=5){%>
+                <a class="buy-tickets scrollto" style=" color:black ; font-weight: bold;" href="/recruitment/teach">Continue Applying for Teaching Faculty </a>
+                <%}else if(user.regcount==0){%>    
+                <a class="buy-tickets scrollto" style=" color:black ; font-weight: bold;" href="/recruitment/teach">Apply for Teaching Faculty </a>
+                <%}%>
+                <%}else if(user.apptype=="Supporting"){%>
+                <%if(user.regcount==4){%>
+                    <a class="buy-tickets scrollto" style=" color:black ; font-weight: bold;" href="/recruitment/view">Application View</a>
+                <%}else if(user.regcount>0 && user.regcount<=3){%>
+                    <a class="buy-tickets scrollto" style=" color:black ; font-weight: bold;" href="/recruitment/sstaff">Continue Applying for Non-Teaching Faculty </a>
+                <%}else if(user.regcount==0){%>    
+                    <a class="buy-tickets scrollto" style=" color:black ; font-weight: bold;" href="/recruitment/sstaff">Apply for Non-Teaching Faculty </a>
+                <%}%>
+                <%}else{%>
+                    <a class="buy-tickets scrollto" style=" color:black ; font-weight: bold;" href="/recruitment/teach">Apply for Teaching Faculty </a>
+                    <a class="buy-tickets scrollto" style=" color:black ; font-weight: bold;" href="/recruitment/sstaff">Apply for Non-Teaching Faculty </a>
+
+                <%}%>
+                <%}%>
+
+
+            </center>
+        </div>
+    </div>
+
+</body>
+</html>

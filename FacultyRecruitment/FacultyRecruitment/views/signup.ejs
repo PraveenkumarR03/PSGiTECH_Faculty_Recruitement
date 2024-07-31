@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Register</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+  <link rel="shortcut icon" type="image/x-icon" href="assets/img/PSGiTech Logo.png">
+
+  <!-- =======================================================
+  * Template Name: TheEvent - v4.7.0
+  * Template URL: https://bootstrapmade.com/theevent-conference-event-bootstrap-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+  <style>
+     .dropdown-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px; /* Increase space below the container */
+        }
+        .dropdown-container select {
+          
+            width: 200px; /* Increase the width of the dropdown boxes */
+            margin-right: 20px; /* Increase spacing between dropdowns */
+        }
+        .dropdown-container1 select {
+          
+          /* Increase the width of the dropdown boxes */
+          margin-right: 20px; /* Increase spacing between dropdowns */
+      }
+        .dropdown-title {
+            margin-bottom: 10px; /* Add space below the title */
+        }
+        .radio-container {
+            display: flex;
+        }
+        .radio-container input[type="radio"] {
+            margin-right: 10px;
+        }
+    /* Style for the container */
+.form-container {
+    padding: 20px;
+    width: 90%; /* Adjust width as needed */
+    margin: 0 auto; /* Center the form horizontally */
+    font-family: "Times New Roman", serif;
+}
+
+/* Style for dropdown titles */
+.dropdown-title {
+    margin-top: 10px;
+}
+
+/* Style for dropdown containers */
+.dropdown-container, .dropdown-container1, .radio-container {
+    margin-bottom: 10px;
+}
+
+/* Style for input fields */
+input[type="text"], input[type="email"], input[type="date"], select, textarea {
+    width: calc(100% - 10px);
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 5px;
+}
+
+/* Style for radio buttons */
+input[type="radio"] {
+    margin-right: 5px;
+}
+
+/* Style for checkboxes */
+input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+/* Style for the "Same as Communication Address" checkbox */
+#reflectCheckbox {
+    margin-top: 10px;
+}
+
+/* Style for the "Add Language" button */
+#addLanguage {
+    margin-top: 10px;
+    padding: 5px 10px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+/* Style for the language groups */
+.language-group {
+    margin-bottom: 10px;
+}
+
+/* Style for remove language button */
+.remove-language {
+    margin-left: 5px;
+    padding: 3px 5px;
+    border: none;
+    background-color: #dc3545;
+    color: white;
+    cursor: pointer;
+}
+
+</style>
+
+
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="d-flex align-items-center header-inner ">
+    <div class="container-fluid container-xxl d-flex align-items-center">
+
+      <div id="logo" class="me-auto" style=" display: flex;justify-content: flex-start;gap: 10px;">
+        <!-- Uncomment below if you prefer to use a text logo -->
+         <a href="/recruitment" class=""><img src="assets/img/psg.png" alt="" title=""></a>
+         <h1 style="text-transform: none;"><a href="/recruitment">PSG<span> iTech</span></a></h1>
+        
+      </div>
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+            <li><a class="nav-link scrollto active" href="/recruitment">Home</a></li>
+            <li><a class="nav-link scrollto" href="/recruitment/profile">Profile</a></li>
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+
+        </nav>
+
+        <a class="buy-tickets scrollto" href="/recruitment/login">Login</a>
+
+    </div>
+  </header><!-- End Header -->
+  <main id="main" class="main-page">
+
+    <section id="speakers-details">
+        <div class="form-container" >
+            <div class="section-header">
+            <h2>Register</h2>
+          </div>
+
+            <form
+                action="/recruitment/register"
+                method="post"
+                class="my-login-validation"
+                enctype="multipart/form-data"
+                >
+                <div id="data" style="position: relative;">
+
+                <div style="border: 2px solid black; padding: 5vw; ">
+                    <center>
+                        <h1 style="font-weight: bold;">Personal Details:</h1></center>
+                    <!--<h3 class="dropdown-title">Position:</h3>
+                <div class="dropdown-container" >
+                  <select name="position" id="dropdown1" style="width: 70vw;">
+                      <option value="Principal">Prinipal</option>
+                      <option value="Dean">Dean</option>
+                      <option value="HOD">HOD</option>
+                      <option value="Professor">Professor</option>
+                      <option value="Associate Professor">Associate Professor</option>
+                      <option value="Assistant Professor">Assistant Professor</option>
+
+
+                  </select>
+              </div>
+              <h3 class="dropdown-title">Department:</h3>
+              <div class="dropdown-container">
+                  <select name="department" id="dropdown2" style="width: 70vw;">
+                      <option value="AIDS">Artificial Intelligence and Data Science</option>
+                      <option value="Civil">Civil Engineering</option>
+                      <option value="CSE">Computer Science and Engineering</option>
+                      <option value="EEE">Electrical and Electronics Engineering</option>
+                      <option value="ECE">Electronics and Communication Engineering</option>
+                      <option value="Mech">Mechanical Engineering</option>
+                      <option value="SH">Science and Humanities</option>
+                  </select>
+              </div>-->
+              <h3 class="dropdown-title">Name:</h3>
+              <div class="dropdown-container1">
+                  <select name="salutation" id="salutation" style="width: 70vw;">
+                      <option value="Dr.">Dr.</option>
+                      <option value="Mrs.">Mrs.</option>
+                      <option value="Ms.">Ms.</option>
+                      <option value="Mr.">Mr.</option>
+                  </select>
+                  <input type="text" id="name" name="inputBox" style="width: 70vw;">
+              
+              </div>
+              <h3 class="dropdown-title">Gender:</h3>
+              <div class="radio-container">
+                <input type="radio" id="option1" name="gender" value="male">
+                <label for="option1">Male </label>&nbsp;&nbsp;&nbsp;&nbsp;
+    
+                <input type="radio" id="option2" name="gender" value="female">
+                <label for="option2">Female</label>&nbsp;&nbsp;&nbsp;&nbsp;
+    
+                <input type="radio" id="option3" name="gender" value="others">
+                <label for="option3">Others</label>&nbsp;&nbsp;
+            </div>
+            <h3 class="dropdown-title">Marital Status:</h3>
+              <div class="radio-container">
+                <input type="radio" id="option1" name="mstatus" value="married">
+                <label for="option1">Married</label>&nbsp;&nbsp;&nbsp;&nbsp;
+    
+                <input type="radio" id="option2" name="mstatus" value="unmarried">
+                <label for="option2">Unmarried</label>&nbsp;&nbsp;
+            </div>
+            <h3 class="dropdown-title">Father Name:</h3>
+            <div class="dropdown-container1">
+                  <input type="text" id="father" name="father" style="width: 70vw;">
+              
+            </div>
+            <h3 class="dropdown-title">Spouse Name:</h3>
+            <div class="dropdown-container1">
+                  <input type="text" id="spouse" name="spouse" style="width: 70vw;">
+              
+            </div>
+            <h3 class="dropdown-title">Date of Birth:</h3>
+            <div>
+              <input type="date" name="dob"
+              placeholder="dd-mm-yyyy" value=""
+              min="1930-01-01" max="2030-12-31" style="width: 70vw;">
+
+            </div>
+            <div>
+              <h3>Contact Details</h3>
+              <label for="mobile">Mobile Number:</label><br>
+              <input type="text" id="mobile" name="mobile" placeholder="Mobile Number" style="width: 70vw;"><br>
+              
+              <label for="email">Email Id:</label><br>
+              <input type="email" id="email" name="email" placeholder="Email ID" style="width: 70vw;"><br>
+              
+            </div>
+            
+            <div>
+             
+                <label for="communicationAddress">Communication Address:</label><br>
+                <textarea id="communicationAddress" name="caddress" rows="3" style="width: 70vw;"></textarea><br>
+                
+
+                <input type="checkbox" id="reflectCheckbox">
+                <label for="reflectCheckbox">same as communication address</label><br>
+
+                <label for="permanentAddress">Permanent Address:</label><br>
+                <textarea id="permanentAddress" name="paddress" rows="3" style="width: 70vw;"></textarea><br>
+        
+            <script>
+                // Get references to the communication address and permanent address input boxes
+                const communicationAddressInput = document.getElementById('communicationAddress');
+                const permanentAddressInput = document.getElementById('permanentAddress');
+                
+                // Get reference to the checkbox
+                const reflectCheckbox = document.getElementById('reflectCheckbox');
+                
+                // Add change event listener to the checkbox
+                reflectCheckbox.addEventListener('change', function() {
+                    // Update the value of the permanent address input box with the communication address value
+                    if (this.checked) {
+                        permanentAddressInput.value = communicationAddressInput.value;
+                    } else {
+                        permanentAddressInput.value = ''; // Clear the permanent address if checkbox is unchecked
+                    }
+                });
+            </script>
+            </div>
+            <h3 class="dropdown-title">Religion:</h3>
+            <div class="dropdown-container1">
+                <input type="text" id="religion" name="religion" style="width: 70vw;">
+            
+            </div>
+            <h3 class="dropdown-title">Community:</h3>
+            <div class="dropdown-container1">
+              <input type="text" id="community" name="community" style="width: 70vw;">
+            </div>
+            <h3 class="dropdown-title">Category:</h3>
+            <div class="radio-container">
+                <input type="radio" id="option1" name="category" value="OC">
+                <label for="option1">OC</label>&nbsp;&nbsp;&nbsp;&nbsp;
+    
+                <input type="radio" id="option2" name="category" value="BC">
+                <label for="option2">BC</label>&nbsp;&nbsp;&nbsp;&nbsp;
+    
+                <input type="radio" id="option3" name="category" value="MBC">
+                <label for="option3">MBC</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="radio" id="option4" name="category" value="SC">
+                <label for="option3">SC</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="radio" id="option5" name="category" value="ST">
+                <label for="option3">ST</label>&nbsp;&nbsp;&nbsp;&nbsp;
+            </div>
+            <h3 class="dropdown-title">Mother tongue:</h3>
+            <div class="dropdown-container1">
+            <input type="text" id="mothertongue" name="mothertongue" style="width: 70vw;">
+            </div>
+            <h3 class="dropdown-title">Languages Known:</h3>
+            <div>
+            <div id="languages">
+              <div class="language-group">
+                  <input type="text" id="languageKnown1" name="languageKnown" style="width: 70vw;"><br>
+                  
+                  <input type="checkbox" id="reading1" name="reading0[]">
+                  <label for="reading1">Read</label>
+                  
+                  <input type="checkbox" id="speaking1" name="speaking0[]">
+                  <label for="speaking1">Speak</label>
+                  
+                  <input type="checkbox" id="writing1" name="writing0[]">
+                  <label for="writing1">Write</label><br>
+                  
+              </div>
+          </div>
+        
+          <button type="button" id="addLanguage">+</button>
+          
+  
+          <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const languageForm = document.getElementById('languageForm');
+                const languagesContainer = document.getElementById('languages');
+                const addLanguageButton = document.getElementById('addLanguage');
+                let languageCount = 0;
+                
+                // Function to add a new language input field
+                function addLanguageInput() {
+                    languageCount++;
+                    const newLanguageGroup = document.createElement('div');
+                    newLanguageGroup.classList.add('language-group');
+                    newLanguageGroup.innerHTML = `
+                        
+                        <input type="text" id="languageKnown${languageCount}" name="languageKnown"><br>
+                        <input type="checkbox" id="reading${languageCount}" name="reading${languageCount}">
+                        <label for="reading${languageCount}">Read</label>
+                        
+                        <input type="checkbox" id="speaking${languageCount}" name="speaking${languageCount}">
+                        <label for="speaking${languageCount}">Speak</label>
+                        
+                        <input type="checkbox" id="writing${languageCount}" name="writing${languageCount}">
+                        <label for="writing${languageCount}">Write</label><br>
+                        
+                        <button type="button" class="remove-language">-</button>
+                        
+                        
+                    `;
+                    languagesContainer.appendChild(newLanguageGroup);
+    
+                    // Add event listener for the remove button in the new language group
+                    const removeLanguageButton = newLanguageGroup.querySelector('.remove-language');
+                    removeLanguageButton.addEventListener('click', function() {
+                        languagesContainer.removeChild(newLanguageGroup);
+                    });
+                }
+                
+                // Event listener for the add language button
+                addLanguageButton.addEventListener('click', function() {
+                    addLanguageInput();
+                });
+            });
+        </script>
+    </div>
+    <!--<h3 class="dropdown-title">Email:</h3>
+
+    <div class="dropdown-container1">
+        <input  id="email" type="email" name="email" placeholder="Email" style="width: 70vw;" required  />
+        </div>-->
+        <h3 class="dropdown-title">Password:</h3>
+        <div class="dropdown-container1">
+            <input  id="password" type="password" name="password"  placeholder="password" style="width: 70vw;" required />    
+        </div>
+        <h3 class="dropdown-title">Upload Photo:</h3>
+        <div class="dropdown-container1">
+            <input type="file" id="photo" name="photo">
+        </div>
+
+
+<div id="otpsend"><button  class="btn btn-primary btn-block" type="button" style="height:13% ;" name="otp" value="otp" onclick="otpsent()" >Get OTP</button></div>
+<div id="tagid"></div>
+
+    </div>
+<br><br>
+
+ <div>&nbsp;</div>
+
+
+</div>
+            </form>
+<script>
+
+    function otpsent(){
+
+        var tag_id = document.getElementById('tagid');
+        var otpid=document.getElementById('otpsend');
+        var name=document.getElementById("name").value;
+        var father=document.getElementById("father").value;
+        var spouse=document.getElementById("spouse").value;
+        var mobile=document.getElementById("mobile").value;
+        var email=document.getElementById("email").value;
+        var religion=document.getElementById("religion").value;
+        var community=document.getElementById("community").value;
+        var password=document.getElementById("password").value;
+        
+
+
+
+
+        if(name.length==0 || mobile.length!=10 || email.length==0 || password.length==0){
+            alert("Invalid Credentials");
+            return;
+        }
+        else{
+            tag_id.innerHTML = '<input type="text" name="otp" placeholder="OTP" pattern="[0-9]{6}" required style="margin-bottom: 20px;"/><br><button class="btn btn-primary btn-block"  type="submit" style="height:13% ;" >Sign Up</button><p>Enter the OTP sent to your email and click on signup. Do not refresh tab till the verification process is complete</p>';
+            let t=60;
+            var intervalId = setInterval(reduce, 1000);
+            function reduce(){
+                if(t<=0){
+                    document.getElementById("otpsend").innerHTML='<button class="btn btn-primary btn-block"  type="button" style="height:13% ;" name="otp" value="otp" onclick="otpsent()" >RESEND OTP</button>';
+                    clearInterval(intervalId);
+                }
+                else{
+                    otpid.innerHTML='<p> Resend Will Be Enabled After '+t+" seconds";
+                        t-=1;
+                }
+            }
+
+            
+            
+                var email=document.getElementById("email").value;
+                    console.log(email);
+                    fetch("/recruitment/sendotp/"+email,{
+                    method: "POST",
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    
+                }
+                ).then((res) => {console.log(res)}).then((res) => {  });
+                //var intervalId = setInterval(count, 60000);
+            
+            
+        }
+
+
+
+
+
+    }
+
+    function count(){
+        document.getElementById("otpsend").innerHTML='<button type="button" style="height:13% ;" name="otp" value="otp" onclick="otpsent()" >RESEND OTP</button>';
+
+    }
+
+
+
+</script>
+
+
+     
+  </main><!-- End #main -->
+
+  <footer id="footer" style="position: fixed;bottom: 0;width: 100%;">
+    
+
+    <div class="container" >
+      
+      <div class="credits">
+        
+      
+      </div>
+    </div>
+  </footer><!-- End  Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

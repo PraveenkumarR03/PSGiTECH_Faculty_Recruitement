@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Register</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+  <link rel="shortcut icon" type="image/x-icon" href="assets/img/PSGiTech Logo.png">
+
+  <!-- =======================================================
+  * Template Name: TheEvent - v4.7.0
+  * Template URL: https://bootstrapmade.com/theevent-conference-event-bootstrap-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+  <style>
+     .dropdown-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px; /* Increase space below the container */
+        }
+        .dropdown-container select {
+          
+            width: 200px; /* Increase the width of the dropdown boxes */
+            margin-right: 20px; /* Increase spacing between dropdowns */
+        }
+        .dropdown-container1 select {
+          
+          /* Increase the width of the dropdown boxes */
+          margin-right: 20px; /* Increase spacing between dropdowns */
+      }
+        .dropdown-title {
+            margin-bottom: 10px; /* Add space below the title */
+        }
+        .radio-container {
+            display: flex;
+        }
+        .radio-container input[type="radio"] {
+            margin-right: 10px;
+        }
+    /* Style for the container */
+.form-container {
+    padding: 20px;
+    width: 90%; /* Adjust width as needed */
+    margin: 0 auto; /* Center the form horizontally */
+    font-family: "Times New Roman", serif;
+}
+
+/* Style for dropdown titles */
+.dropdown-title {
+    margin-top: 10px;
+}
+
+/* Style for dropdown containers */
+.dropdown-container, .dropdown-container1, .radio-container {
+    margin-bottom: 10px;
+}
+
+/* Style for input fields */
+input[type="text"], input[type="email"], input[type="date"], select, textarea {
+    width: calc(100% - 10px);
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 5px;
+}
+
+/* Style for radio buttons */
+input[type="radio"] {
+    margin-right: 5px;
+}
+
+/* Style for checkboxes */
+input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+/* Style for the "Same as Communication Address" checkbox */
+#reflectCheckbox {
+    margin-top: 10px;
+}
+
+/* Style for the "Add Language" button */
+#addLanguage {
+    margin-top: 10px;
+    padding: 5px 10px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+/* Style for the language groups */
+.language-group {
+    margin-bottom: 10px;
+}
+
+/* Style for remove language button */
+.remove-language {
+    margin-left: 5px;
+    padding: 3px 5px;
+    border: none;
+    background-color: #dc3545;
+    color: white;
+    cursor: pointer;
+}
+
+</style>
+
+
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="d-flex align-items-center header-inner ">
+    <div class="container-fluid container-xxl d-flex align-items-center">
+
+      <div id="logo" class="me-auto" style=" display: flex;justify-content: flex-start;gap: 10px;">
+        <!-- Uncomment below if you prefer to use a text logo -->
+         <a href="/recruitment" class=""><img src="assets/img/psg.png" alt="" title=""></a>
+         <h1 style="text-transform: none;"><a href="/recruitment">PSG<span> iTech</span></a></h1>
+        
+      </div>
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+            <li><a class="nav-link scrollto active" href="/recruitment">Home</a></li>
+            <li><a class="nav-link scrollto" href="/recruitment/profile">Profile</a></li>
+            <%if(user){%>
+                <%if(user.accountType=="hr"){%>
+                    <li><a class="nav-link scrollto" href="/recruitment/approval">HR Approval</a></li>
+                <%}else if(user.accountType=="hod"){%>
+                    <li><a class="nav-link scrollto" href="/recruitment/hodapproval">Hod Approval</a></li>
+                <%}else if(user.accountType=="admin"){%>
+                    <li><a class="nav-link scrollto" href="/recruitment/approval">HR Approval</a></li>
+                    <li><a class="nav-link scrollto" href="/recruitment/hodapproval">Hod Approval</a></li>
+                <%}%>
+                
+            <%}%>
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+
+        </nav>
+        <%if(user){%> 
+        <a class="buy-tickets scrollto" href="/recruitment/logout">Logout</a>
+
+    <%}
+    else{%>
+        <a class="buy-tickets scrollto" href="/recruitment/login">Login</a>
+    <%}%>
+    </div>
+  </header><!-- End Header -->
+  <main id="main" class="main-page">
+
+    <section id="speakers-details">
+        <div class="form-container" >
+            <div class="section-header">
+            <h2>Teaching Faculty Recruitment Application</h2>
+          </div>
+
+            <form
+                action="/recruitment/teachreg5"
+                method="POST"
+                class="my-login-validation"
+                enctype="multipart/form-data"
+                >
+        <div id="data" style="position: relative;">
+          <div style="border: 2px solid black; padding: 5vw; ">
+            <center><h1 style="font-weight: bold;">References</h1></center>
+
+          <div>
+                <div id="references">
+                  <label for="name${referenceCount}">Name:</label><br>
+                  <input type="text" id="name${referenceCount}" name="name" placeholder="Name"><br>
+                  
+                  <label for="designation${referenceCount}">Designation:</label><br>
+                  <input type="text" id="designation${referenceCount}" name="designationref" placeholder="Designation"><br>
+                  
+                  <label for="organization${referenceCount}">Organization:</label><br>
+                  <input type="text" id="organization${referenceCount}" name="organization" placeholder="Organization"><br>
+                  
+                  <label for="mobile${referenceCount}">Mobile No.:</label><br>
+                  <input type="text" id="mobile${referenceCount}" name="mobile" placeholder="Mobile No."><br>
+                  
+                </div>
+                <br>
+                <button type="button" id="addReference">Add Reference</button><br>
+                
+        
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    const referencesForm = document.getElementById('referencesForm');
+                    const referencesContainer = document.getElementById('references');
+                    const addReferenceButton = document.getElementById('addReference');
+                    let referenceCount = 0;
+                    
+                    // Function to add a new reference input fields
+                    function addReferenceInput() {
+                        referenceCount++;
+                        const newReferenceGroup = document.createElement('div');
+                        newReferenceGroup.classList.add('reference-group');
+                        newReferenceGroup.innerHTML = `<br>
+                            <label for="name${referenceCount}">Name:</label><br>
+                            <input type="text" id="name${referenceCount}" name="name" placeholder="Name"><br>
+                            
+                            <label for="designation${referenceCount}">Designation:</label><br>
+                            <input type="text" id="designation${referenceCount}" name="designationref" placeholder="Designation"><br>
+                            
+                            <label for="organization${referenceCount}">Organization:</label><br>
+                            <input type="text" id="organization${referenceCount}" name="organization" placeholder="Organization"><br>
+                            
+                            <label for="mobile${referenceCount}">Mobile No.:</label><br>
+                            <input type="text" id="mobile${referenceCount}" name="mobile" placeholder="Mobile No."><br>
+                            
+                            <button type="button" class="remove-reference">Remove</button>
+                        `;
+                        referencesContainer.appendChild(newReferenceGroup);
+        
+                        // Add event listener for the remove button in the new reference group
+                        const removeReferenceButton = newReferenceGroup.querySelector('.remove-reference');
+                        removeReferenceButton.addEventListener('click', function() {
+                            referencesContainer.removeChild(newReferenceGroup);
+                        });
+                    }
+                    
+                    // Event listener for the add reference button
+                    addReferenceButton.addEventListener('click', function() {
+                        addReferenceInput();
+                    });
+                });
+            </script>
+          </div>
+          </div>
+          <br><br>
+          <div style="border: 2px solid black; padding: 5vw; ">
+            <center><h1 style="font-weight: bold;">Salary and Timing details</h1></center>
+
+          <div>
+            <label for="lastPay">Last Drawn Monthly Pay (Rs.):</label><br>
+        <input type="text" id="lastPay" name="lastPay" placeholder="Last Drawn Monthly Pay"><br>
+        
+        <label for="expectedPay">Pay Expected, if Selected (Rs.):</label><br>
+        <input type="text" id="expectedPay" name="expectedPay" placeholder="Pay Expected"><br>
+        
+        <label for="joiningTime">Joining Time Required, if Selected:</label><br>
+        <input type="text" id="joiningTime" name="joiningTime" placeholder="Joining Time Required"><br>
+        
+          </div>
+          <br>
+          <div>
+            
+            <h2 for="learnedFrom">I came to know about the vacancy through:</h2>
+            <select id="learnedFrom" name="learnedFrom">
+                <option value="Hindu Newspaper"> Hindu Newspaper</option>
+                <option value="Naukri.com"> Naukri.com</option>
+                <option value="College website"> College website</option>
+                <option value="Known Source"> Known Source</option>
+            </select><br>
+          </div>
+          <br>
+          <div>                
+                <h3>In case of Close Relatives/Known Persons employed in PSG Institutions</h3>
+                <!-- Field for the number of relatives/known persons -->
+                <div>
+                    <div>
+                        <div id="relatives">
+                            <label for="relativeName${relativeCount}">Name:</label><br>
+                            <input type="text" id="relativeName${relativeCount}" name="relativeName" placeholder="Relative's Name"><br>
+                            
+                            <label for="relationship${relativeCount}">Relationship:</label><br>
+                            <input type="text" id="relationship${relativeCount}" name="relationship" placeholder="Relationship"><br>
+                            
+                            <label for="institution${relativeCount}">Institution:</label><br>
+                            <input type="text" id="institution${relativeCount}" name="institution" placeholder="Institution"><br>
+                            
+                            <label for="designation${relativeCount}">Designation:</label><br>
+                            <input type="text" id="designation${relativeCount}" name="designationrel" placeholder="Designation"><br>
+                        </div>
+                        <br>
+                        <button type="button" id="addRelative">Add Relative</button><br>
+                        
+                
+                    <script>
+                        document.addEventListener('DOMContentLoaded', function() {
+                            const relativesForm = document.getElementById('relativesForm');
+                            const relativesContainer = document.getElementById('relatives');
+                            const addRelativeButton = document.getElementById('addRelative');
+                            let relativeCount = 0;
+                            
+                            // Function to add a new relative input fields
+                            function addRelativeInput() {
+                                relativeCount++;
+                                const newRelativeGroup = document.createElement('div');
+                                newRelativeGroup.classList.add('relative-group');
+                                newRelativeGroup.innerHTML = `<br>
+                                <label for="relativeName${relativeCount}">Name:</label><br>
+                                <input type="text" id="relativeName${relativeCount}" name="relativeName" placeholder="Relative's Name"><br>
+                                
+                                <label for="relationship${relativeCount}">Relationship:</label><br>
+                                <input type="text" id="relationship${relativeCount}" name="relationship" placeholder="Relationship"><br>
+                                
+                                <label for="institution${relativeCount}">Institution:</label><br>
+                                <input type="text" id="institution${relativeCount}" name="institution" placeholder="Institution"><br>
+                                
+                                <label for="designation${relativeCount}">Designation:</label><br>
+                                <input type="text" id="designation${relativeCount}" name="designationrel" placeholder="Designation"><br>
+                                    
+                                <button type="button" class="remove-relative">Remove</button>
+                                `;
+                                relativesContainer.appendChild(newRelativeGroup);
+                
+                                // Add event listener for the remove button in the new relative group
+                                const removeRelativeButton = newRelativeGroup.querySelector('.remove-relative');
+                                removeRelativeButton.addEventListener('click', function() {
+                                    relativesContainer.removeChild(newRelativeGroup);
+                                });
+                            }
+                            
+                            // Event listener for the add relative button
+                            addRelativeButton.addEventListener('click', function() {
+                                addRelativeInput();
+                            });
+                        });
+                    </script>
+                  </div>
+          </div>
+          <br>
+          <label for="information">Any other information of importance:</label><br>
+            <textarea type="text" row="10" id="information" name="information"></textarea><br>
+
+            <h3 class="dropdown-title">Upload Resume:</h3>
+        <div class="dropdown-container1">
+            <input type="file" id="resume" name="resume" onchange="Filevalidation()" accept=".pdf">
+            <p id="size"></p>
+ 
+            <script>
+                Filevalidation = () => {
+                    const fi = document.getElementById('resume');
+                    // Check if any file is selected.
+                    if (fi.files.length > 0) {         
+                            const fsize = fi.files.item(0).size;
+                            const file = Math.round((fsize / 1024));
+                            // The size of the file.
+                            var filePath = fi.value;
+         
+                                // Allowing file type
+                                var allowedExtensions = 
+                                        /(\.pdf)$/i;
+                                
+                                if (!allowedExtensions.exec(filePath)) {
+                                    alert('Invalid file type');
+                                    fi.value = '';
+                                } 
+                            
+                            if (file >= 4096) {
+                                alert(
+                "File too Big, please select a file less than 4mb");
+                                fi.value = '';
+                            }
+                        }
+                    
+                }
+            </script>
+
+<br><br>
+            <input type="checkbox" id="declare" name="declare" onchange="document.getElementById('buttonsub').disabled = !this.checked;">
+            <label for="declare">I hereby declare that the information furnished herein above is correct and true to the best of my knowledge.</label><br>
+          </div>
+            <br>
+            <center>
+            <div class="form-group m-0">
+                <button
+                    type="submit"
+                    class="btn btn-primary btn-block"
+                    id="buttonsub"
+                    disabled="disabled"
+                    onclick="return confirm('Are you sure want to Submit the Application?')"
+                >
+                    Submit
+                </button>
+            </div></center>
+        </div>
+    </div>
+    </form>
+    
+        </div>
+  
+      </section>
+  </main><!-- End #main -->
+
+  <footer id="footer" style="position: fixed;bottom: 0;width: 100%;">
+    
+
+    <div class="container" >
+      
+      <div class="credits">
+        
+      
+      </div>
+    </div>
+  </footer><!-- End  Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

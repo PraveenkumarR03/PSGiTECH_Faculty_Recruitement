@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Register</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+  <link rel="shortcut icon" type="image/x-icon" href="assets/img/PSGiTech Logo.png">
+
+  <!-- =======================================================
+  * Template Name: TheEvent - v4.7.0
+  * Template URL: https://bootstrapmade.com/theevent-conference-event-bootstrap-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+  <style>
+     .dropdown-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px; /* Increase space below the container */
+        }
+        .dropdown-container select {
+          
+            width: 200px; /* Increase the width of the dropdown boxes */
+            margin-right: 20px; /* Increase spacing between dropdowns */
+        }
+        .dropdown-container1 select {
+          
+          /* Increase the width of the dropdown boxes */
+          margin-right: 20px; /* Increase spacing between dropdowns */
+      }
+        .dropdown-title {
+            margin-bottom: 10px; /* Add space below the title */
+        }
+        .radio-container {
+            display: flex;
+        }
+        .radio-container input[type="radio"] {
+            margin-right: 10px;
+        }
+    /* Style for the container */
+.form-container {
+    padding: 20px;
+    width: 90%; /* Adjust width as needed */
+    margin: 0 auto; /* Center the form horizontally */
+    font-family: "Times New Roman", serif;
+}
+
+/* Style for dropdown titles */
+.dropdown-title {
+    margin-top: 10px;
+}
+
+/* Style for dropdown containers */
+.dropdown-container, .dropdown-container1, .radio-container {
+    margin-bottom: 10px;
+}
+
+/* Style for input fields */
+input[type="text"], input[type="email"], input[type="date"], select, textarea {
+    width: calc(100% - 10px);
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 5px;
+}
+
+/* Style for radio buttons */
+input[type="radio"] {
+    margin-right: 5px;
+}
+
+/* Style for checkboxes */
+input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+/* Style for the "Same as Communication Address" checkbox */
+#reflectCheckbox {
+    margin-top: 10px;
+}
+
+/* Style for the "Add Language" button */
+#addLanguage {
+    margin-top: 10px;
+    padding: 5px 10px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+/* Style for the language groups */
+.language-group {
+    margin-bottom: 10px;
+}
+
+/* Style for remove language button */
+.remove-language {
+    margin-left: 5px;
+    padding: 3px 5px;
+    border: none;
+    background-color: #dc3545;
+    color: white;
+    cursor: pointer;
+}
+
+</style>
+
+
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="d-flex align-items-center header-inner ">
+    <div class="container-fluid container-xxl d-flex align-items-center">
+
+      <div id="logo" class="me-auto" style=" display: flex;justify-content: flex-start;gap: 10px;">
+        <!-- Uncomment below if you prefer to use a text logo -->
+         <a href="/recruitment" class=""><img src="assets/img/psg.png" alt="" title=""></a>
+         <h1 style="text-transform: none;"><a href="/recruitment">PSG<span> iTech</span></a></h1>
+        
+      </div>
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+            <li><a class="nav-link scrollto active" href="/recruitment">Home</a></li>
+            <li><a class="nav-link scrollto" href="/recruitment/profile">Profile</a></li>
+            <%if(user){%>
+                <%if(user.accountType=="hr"){%>
+                    <li><a class="nav-link scrollto" href="/recruitment/approval">HR Approval</a></li>
+                <%}else if(user.accountType=="hod"){%>
+                    <li><a class="nav-link scrollto" href="/recruitment/hodapproval">Hod Approval</a></li>
+                <%}else if(user.accountType=="admin"){%>
+                    <li><a class="nav-link scrollto" href="/recruitment/approval">HR Approval</a></li>
+                    <li><a class="nav-link scrollto" href="/recruitment/hodapproval">Hod Approval</a></li>
+                <%}%>
+                
+            <%}%>
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+
+        </nav>
+        <%if(user){%> 
+        <a class="buy-tickets scrollto" href="/recruitment/logout">Logout</a>
+
+    <%}
+    else{%>
+        <a class="buy-tickets scrollto" href="/recruitment/login">Login</a>
+    <%}%>
+    </div>
+  </header><!-- End Header -->
+  <main id="main" class="main-page">
+
+    <section id="speakers-details">
+        <div class="form-container" >
+            <div class="section-header">
+            <h2>Supporting Staff Recruitment Application</h2>
+          </div>
+
+            <form
+                action="/recruitment/staffreg"
+                method="POST"
+                class="my-login-validation"
+                novalidate=""
+                >
+                <div id="data" style="position: relative;">
+                <div style="border: 2px solid black; padding: 5vw; ">
+                    <center>
+                    <h1 style="font-weight: bold;">Applying For:</h1></center>
+                  <h3 class="dropdown-title">Position:</h3>
+                  <div>
+                    <div class="dropdown-container" >
+                        <select name="position" id="dropdown1" style="width: 70vw;">
+                            <option value="Technical Assistant">Technical Assistant</option>
+                            <option value="Lab Assistant">Lab Assistant</option>
+                            <option value="Junior Assistant">Junior Assistant</option>
+                        </select>
+                    </div>
+                      <div>
+                        <h3 class="dropdown-title">Department:</h3>
+                        <div class="dropdown-container" >
+                            <select name="department" id="dropdown2" style="width: 70vw;">
+                                <option value="AIDS">Artificial Intelligence and Data Science</option>
+                                <option value="Civil">Civil Engineering</option>
+                                <option value="CSE">Computer Science and Engineering</option>
+                                <option value="EEE">Electrical and Electronics Engineering</option>
+                                <option value="ECE">Electronics and Communication Engineering</option>
+                                <option value="Mech">Mechanical Engineering</option>
+                                <option value="Maths">Mathematics</option>
+                                <option value="Physics">Physics</option>
+                                <option value="Chemistry">Chemistry</option>
+                                <option value="English">English</option>
+                                <option value="Tamil">Tamil</option>
+                                <option value="Humanities">Humanities</option>
+          
+                            </select>
+                        </div>
+                      </div>
+                     
+                    </div>
+                </div>
+                <br><br>
+            <center>
+                <div class="form-group m-0">
+                    <button
+                        type="submit"
+                        class="btn btn-primary btn-block"
+                        id="buttonsub"
+                    >
+                        Save and Next
+                    </button>
+        </div></center>
+      </div>
+        </div>
+    </div>
+    </form>
+    
+        </div>
+  
+      </section>
+  </main><!-- End #main -->
+
+  <footer id="footer" style="position: fixed;bottom: 0;width: 100%;">
+    
+
+    <div class="container" >
+      
+      <div class="credits">
+        
+      
+      </div>
+    </div>
+  </footer><!-- End  Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
