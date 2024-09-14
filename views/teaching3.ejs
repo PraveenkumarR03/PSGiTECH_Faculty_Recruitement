@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Register</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+  <link rel="shortcut icon" type="image/x-icon" href="assets/img/PSGiTech Logo.png">
+
+  <!-- =======================================================
+  * Template Name: TheEvent - v4.7.0
+  * Template URL: https://bootstrapmade.com/theevent-conference-event-bootstrap-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+  <style>
+     .dropdown-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px; /* Increase space below the container */
+        }
+        .dropdown-container select {
+          
+            width: 200px; /* Increase the width of the dropdown boxes */
+            margin-right: 20px; /* Increase spacing between dropdowns */
+        }
+        .dropdown-container1 select {
+          
+          /* Increase the width of the dropdown boxes */
+          margin-right: 20px; /* Increase spacing between dropdowns */
+      }
+        .dropdown-title {
+            margin-bottom: 10px; /* Add space below the title */
+        }
+        .radio-container {
+            display: flex;
+        }
+        .radio-container input[type="radio"] {
+            margin-right: 10px;
+        }
+    /* Style for the container */
+.form-container {
+    padding: 20px;
+    width: 90%; /* Adjust width as needed */
+    margin: 0 auto; /* Center the form horizontally */
+    font-family: "Times New Roman", serif;
+}
+
+/* Style for dropdown titles */
+.dropdown-title {
+    margin-top: 10px;
+}
+
+/* Style for dropdown containers */
+.dropdown-container, .dropdown-container1, .radio-container {
+    margin-bottom: 10px;
+}
+
+/* Style for input fields */
+input[type="text"], input[type="email"], input[type="date"], select, textarea {
+    width: calc(100% - 10px);
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 5px;
+}
+
+/* Style for radio buttons */
+input[type="radio"] {
+    margin-right: 5px;
+}
+
+/* Style for checkboxes */
+input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+/* Style for the "Same as Communication Address" checkbox */
+#reflectCheckbox {
+    margin-top: 10px;
+}
+
+/* Style for the "Add Language" button */
+#addLanguage {
+    margin-top: 10px;
+    padding: 5px 10px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+/* Style for the language groups */
+.language-group {
+    margin-bottom: 10px;
+}
+
+/* Style for remove language button */
+.remove-language {
+    margin-left: 5px;
+    padding: 3px 5px;
+    border: none;
+    background-color: #dc3545;
+    color: white;
+    cursor: pointer;
+}
+
+</style>
+
+
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="d-flex align-items-center header-inner ">
+    <div class="container-fluid container-xxl d-flex align-items-center">
+
+      <div id="logo" class="me-auto" style=" display: flex;justify-content: flex-start;gap: 10px;">
+        <!-- Uncomment below if you prefer to use a text logo -->
+        <img src="assets/img/psg_itech_lg.png" height="300px" width="auto" class="img-fluid" alt="Logo">
+
+        
+      </div>
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+            <li><a class="nav-link scrollto active" href="/recruitment">Home</a></li>
+            <li><a class="nav-link scrollto" href="/recruitment/profile">Profile</a></li>
+            <%if(user){%>
+                <%if(user.accountType=="hr"){%>
+                    <li><a class="nav-link scrollto" href="/recruitment/approval">HR Approval</a></li>
+                <%}else if(user.accountType=="hod"){%>
+                    <li><a class="nav-link scrollto" href="/recruitment/hodapproval">Hod Approval</a></li>
+                <%}else if(user.accountType=="admin"){%>
+                    <li><a class="nav-link scrollto" href="/recruitment/approval">HR Approval</a></li>
+                    <li><a class="nav-link scrollto" href="/recruitment/hodapproval">Hod Approval</a></li>
+                <%}%>
+                
+            <%}%>
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+
+        </nav>
+        <%if(user){%> 
+        <a class="buy-tickets scrollto" href="/recruitment/logout">Logout</a>
+
+    <%}
+    else{%>
+        <a class="buy-tickets scrollto" href="/recruitment/login">Login</a>
+    <%}%>
+    </div>
+  </header><!-- End Header -->
+  <main id="main" class="main-page">
+
+    <section id="speakers-details">
+        <div class="form-container" >
+            <div class="section-header">
+            <h2>Teaching Faculty Recruitment Application</h2>
+          </div>
+
+            <form
+                action="/recruitment/teachreg3"
+                method="POST"
+                class="my-login-validation"
+                novalidate=""
+                >
+                <div id="data" style="position: relative;">
+
+        <div style="border: 2px solid black; padding: 5vw; ">
+          <center><h1 style="font-weight: bold;">Work Experience</h1></center>
+          <div> 
+        <div id="workExperiences">
+            <label for="institutionName${experienceCount}">Institution Name:</label><br>
+            <input type="text" id="institutionName${experienceCount}" name="institutionName" placeholder="Institution Name"><br>
+            
+            <label for="institutionAddress${experienceCount}">Address of the Institution:</label><br>
+            <input type="text" id="institutionAddress${experienceCount}" name="institutionAddress" placeholder="Address of the Institution"><br>
+            
+            <label for="designation${experienceCount}">Designation:</label><br>
+            <input type="text" id="designation${experienceCount}" name="designation" placeholder="Designation"><br>
+            
+            <!-- <input type="radio" id="certificateYes${experienceCount}" name="certificateAvailable" value="Yes">
+            <label for="certificateYes${experienceCount}">Yes</label><br>
+            
+            <input type="radio" id="certificateNo${experienceCount}" name="certificateAvailable" value="No">
+            <label for="certificateNo${experienceCount}">No</label><br> -->
+            <label for="certificateAvailable">Service Certificate Available:</label><br>
+            <select name="certificateAvailable" id="dropdown1" style="width: 70vw;">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>               
+            </select>
+            
+            <label for="reasonForLeaving${experienceCount}">Reason for Leaving:</label><br>
+            <input type="text" id="reasonForLeaving${experienceCount}" name="reasonForLeaving" placeholder="Reason for Leaving"><br>
+            
+            <label for="fromDate${experienceCount}">From:</label><br>
+            <input type="date" id="fromDate${experienceCount}" name="fromDate"><br>
+            
+            <label for="toDate${experienceCount}">To:</label><br>
+            <input type="date" id="toDate${experienceCount}" name="toDate"><br>
+        </div>
+          </div>
+        <br>
+        <button type="button" id="addExperience">Add Work Experience</button><br>
+       
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const workExperienceForm = document.getElementById('workExperienceForm');
+            const workExperiencesContainer = document.getElementById('workExperiences');
+            const addExperienceButton = document.getElementById('addExperience');
+            let experienceCount = 0;
+            
+            // Function to add a new work experience input fields
+            function addExperienceInput() {
+                experienceCount++;
+                const newExperienceGroup = document.createElement('div');
+                newExperienceGroup.classList.add('experience-group');
+                newExperienceGroup.innerHTML = ` <br>
+                    <label for="institutionName${experienceCount}">Institution Name:</label><br>
+                    <input type="text" id="institutionName${experienceCount}" name="institutionName" placeholder="Institution Name"><br>
+                    
+                    <label for="institutionAddress${experienceCount}">Address of the Institution:</label><br>
+                    <input type="text" id="institutionAddress${experienceCount}" name="institutionAddress" placeholder="Address of the Institution"><br>
+                    
+                    <label for="designation${experienceCount}">Designation:</label><br>
+                    <input type="text" id="designation${experienceCount}" name="designation" placeholder="Designation"><br>
+                    
+                    <label for="certificateAvailable">Service Certificate Available:</label><br>
+                    <select name="certificateAvailable" id="dropdown1" style="width: 70vw;">
+                         <option value="Yes">Yes</option>
+                          <option value="No">No</option>
+            
+                    </select><br>
+                    
+                    <label for="reasonForLeaving${experienceCount}">Reason for Leaving:</label><br>
+                    <input type="text" id="reasonForLeaving${experienceCount}" name="reasonForLeaving" placeholder="Reason for Leaving"><br>
+                    
+                    <label for="fromDate${experienceCount}">From:</label><br>
+                    <input type="date" id="fromDate${experienceCount}" name="fromDate"><br>
+                    
+                    <label for="toDate${experienceCount}">To:</label><br>
+                    <input type="date" id="toDate${experienceCount}" name="toDate"><br>
+                    
+                    <button type="button" class="remove-experience">Remove</button>
+                `;
+                workExperiencesContainer.appendChild(newExperienceGroup);
+
+                // Add event listener for the remove button in the new work experience group
+                const removeExperienceButton = newExperienceGroup.querySelector('.remove-experience');
+                removeExperienceButton.addEventListener('click', function() {
+                    workExperiencesContainer.removeChild(newExperienceGroup);
+                });
+            }
+            
+            // Event listener for the add work experience button
+            addExperienceButton.addEventListener('click', function() {
+                addExperienceInput();
+            });
+        });
+    </script>
+    <br>
+          <label for="yoexp">Total number of years experience:</label><br>
+          <input type="text" id="yoexp" name="yoexp"><br>
+          
+          </div>
+ <br><br>
+            <center>
+            <div class="form-group m-0">
+                <button
+                    type="submit"
+                    class="btn btn-primary btn-block"
+                    id="buttonsub"
+                >
+                    Save and Next
+                </button>
+                <!-- <script>
+                    var decbutton=document.getElementById("buttonsub");
+                    decbutton.addEventListener("click", declare);
+                    function declare(){
+                        if(decbutton.disabled){
+                            alert("Check I Declare Checkbox");
+                        }
+                    }
+                </script> -->
+            </div></center>
+        </div>
+    </div>
+    </form>
+    
+        </div>
+  
+      </section>
+  </main><!-- End #main -->
+
+  <footer id="footer" style="position: fixed;bottom: 0;width: 100%;">
+    
+
+    <div class="container" >
+      
+      <div class="credits">
+        
+      
+      </div>
+    </div>
+  </footer><!-- End  Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
